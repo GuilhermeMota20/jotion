@@ -5,6 +5,7 @@ import { useConvexAuth } from "convex/react";
 import { redirect } from "next/navigation";
 import React from "react"
 import Navigation from "./_components/navigation";
+import SearchCommand from "@/components/search-command";
 
 type Props = {
   children: React.ReactNode;
@@ -30,6 +31,7 @@ export default function MainLayout({ children }: Props) {
       <Navigation />
 
       <main className="flex-1 h-full overflow-y-auto">
+        <SearchCommand />
         {children}
       </main>
     </div>
