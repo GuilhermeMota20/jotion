@@ -12,11 +12,13 @@ import DocumentList from "./document-list";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import TrashBox from "./trash-box";
 import { useSearch } from "@/hooks/use-search";
+import { useSettings } from "@/hooks/use-settings";
 
 export default function Navigation() {
   const pathname = usePathname();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const create = useMutation(api.documents.create);
+  const settings = useSettings();
 
   const { onOpen } = useSearch((state) => state);
 
@@ -145,7 +147,7 @@ export default function Navigation() {
           <Item
             label="Settings"
             icon={Settings}
-            onClick={() => { }}
+            onClick={settings.onOpen}
           />
           <Item
             label="New page"
