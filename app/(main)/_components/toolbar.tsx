@@ -3,11 +3,11 @@
 import IconPicker from "@/components/icon-picker";
 import { Button } from "@/components/ui/button";
 import { api } from "@/convex/_generated/api";
-import { Doc, Id } from "@/convex/_generated/dataModel";
+import { Doc } from "@/convex/_generated/dataModel";
 import { useMutation } from "convex/react";
 import { ImageIcon, Smile, X } from "lucide-react";
 import React, { ElementRef, useRef, useState } from "react";
-import Textarea, { TextareaAutosizeProps, TextareaHeightChangeMeta } from "react-textarea-autosize";
+import Textarea from "react-textarea-autosize";
 
 type Props = {
   initialData: Doc<"documents">;
