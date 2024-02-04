@@ -4,6 +4,7 @@ import IconPicker from "@/components/icon-picker";
 import { Button } from "@/components/ui/button";
 import { api } from "@/convex/_generated/api";
 import { Doc } from "@/convex/_generated/dataModel";
+import { useCoverImage } from "@/hooks/use-cover-image";
 import { useMutation } from "convex/react";
 import { ImageIcon, Smile, X } from "lucide-react";
 import React, { ElementRef, useRef, useState } from "react";
@@ -22,6 +23,8 @@ export default function Toolbar({ initialData, preview }: Props) {
 
   const update = useMutation(api.documents.update);
   const removeIcon = useMutation(api.documents.remooveIcon);
+
+  const { onOpen } = useCoverImage();
 
   const enableInput = () => {
     if (preview) return;
@@ -114,7 +117,7 @@ export default function Toolbar({ initialData, preview }: Props) {
 
           {!initialData?.coverImage && !preview && (
             <Button
-              onClick={() => { }}
+              onClick={onOpen}
               className="text-muted-foreground text-xs"
               variant="outline"
               size="sm"
