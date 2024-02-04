@@ -9,7 +9,8 @@ import { useMutation } from "convex/react";
 import { ImageIcon, X } from "lucide-react";
 import Image from "next/image";
 import { useParams } from "next/navigation";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 
 type Props = {
   url?: string;
@@ -74,6 +75,14 @@ export default function Cover({ url, preview }: Props) {
           </div>
         )}
       </div>
+    </>
+  )
+};
+
+Cover.Skeleton = function CoverSkeleton() {
+  return (
+    <>
+      <Skeleton  />
     </>
   )
 }
