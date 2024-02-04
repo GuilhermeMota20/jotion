@@ -13,9 +13,9 @@ import { SingleImageDropzone } from "../single-image-dropzone";
 export default function CoverImageModal() {
   const { documentId } = useParams();
   const update = useMutation(api.documents.update);
-  const  { isOpen, onClose } = useCoverImage();
-  const  { edgestore } = useEdgeStore();
-  
+  const { isOpen, onClose, url } = useCoverImage();
+  const { edgestore } = useEdgeStore();
+
   const [file, setFile] = useState<File>();
   const [isSubmiting, setIsSubmiting] = useState(false);
 
@@ -31,7 +31,10 @@ export default function CoverImageModal() {
       setFile(file);
 
       const res = await edgestore.publicFiles.upload({
-        file
+        file,
+        options: {
+          replaceTargetUrl: url,
+        },
       });
 
       await update({
