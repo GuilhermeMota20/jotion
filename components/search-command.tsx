@@ -59,7 +59,7 @@ export default function SearchCommand() {
                 key={index}
                 value={`${doc._id}-${doc.title}`}
                 title={doc.title}
-                onSelect={onSelect}
+                onSelect={() => onSelect(doc?._id)}
               >
                 {doc.icon ? (
                   <p className="mr-2 text-[18px]">

@@ -10,7 +10,7 @@ export default defineSchema({
     contet: v.optional(v.string()),
     coverImage: v.optional(v.string()),
     icon: v.optional(v.string()),
-    isPublised: v.boolean(),
+    isPublished: v.boolean(),
   })
   .index("by_user", ["userId"])
   .index("by_user_parent", ["userId", "parentDocument"])

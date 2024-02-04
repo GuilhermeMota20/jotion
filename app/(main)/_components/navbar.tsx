@@ -15,11 +15,13 @@ type Props = {
 };
 
 export default function Navbar({ isCollapsed, onResetWidth }: Props) {
-  const params = useParams();
+  const { documentId } = useParams();
+  
   const document = useQuery(api.documents.getById, {
-    documentId: params?.documentId as Id<"documents">,
+    documentId: documentId as Id<"documents">,
   });
 
+  
   if (document === undefined) {
     return (
       <>

@@ -113,7 +113,7 @@ export const create = mutation({
       parentDocument: args.parentDocument,
       userId,
       isArchived: false,
-      isPublised: false,
+      isPublished: false,
     });
 
     return document;
@@ -255,9 +255,7 @@ export const getSearch = query({
 });
 
 export const getById = query({
-  args: {
-    documentId: v.id("documents")
-  },
+  args: { documentId: v.id("documents") },
   handler: async (ctx, args) => {
     const identity = await ctx.auth.getUserIdentity();
 
@@ -265,21 +263,21 @@ export const getById = query({
 
     if (!document) {
       throw new Error("Not found");
-    };
+    }
 
-    if (!document.isPublised && !document.isArchived) {
+    if (document.isPublished && !document.isArchived) {
       return document;
-    };
+    }
 
     if (!identity) {
       throw new Error("Not authenticated");
-    };
+    }
 
     const userId = identity.subject;
 
     if (document.userId !== userId) {
       throw new Error("Unauthorized");
-    };
+    }
 
     return document;
   }
