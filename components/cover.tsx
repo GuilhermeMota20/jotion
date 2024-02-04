@@ -82,7 +82,7 @@ export default function Cover({ url, preview }: Props) {
 Cover.Skeleton = function CoverSkeleton() {
   return (
     <>
-      <Skeleton  />
+      <Skeleton className="w-full h-[12vh]" />
     </>
   )
 }
