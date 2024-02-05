@@ -22,7 +22,7 @@ export default function Toolbar({ initialData, preview }: Props) {
   const [value, setValue] = useState(initialData?.title);
 
   const update = useMutation(api.documents.update);
-  const removeIcon = useMutation(api.documents.remooveIcon);
+  const removeIcon = useMutation(api.documents.removeIcon);
 
   const { onOpen } = useCoverImage();
 

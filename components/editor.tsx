@@ -25,7 +25,7 @@ export default function Editor({ onChange, editable, initialContent }: Props) {
   };
 
   const editor: BlockNoteEditor | any = useBlockNote({
-    editable,
+    editable, // if isPublished && false;
     initialContent:
       initialContent
         ? JSON.parse(initialContent)
