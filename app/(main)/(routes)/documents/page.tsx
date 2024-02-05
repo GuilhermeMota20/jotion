@@ -6,14 +6,18 @@ import { useUser } from "@clerk/clerk-react";
 import { useMutation } from "convex/react";
 import { PlusCircle } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 export default function DocumentsPage() {
+  const router = useRouter();
+
   const { user } = useUser();
   const create = useMutation(api.documents.create);
 
   const onCreate = () => {
-    const promise = create({ title: "Untitled" });
+    const promise = create({ title: "Untitled" })
+      .then((documentId) => router?.push(`/documents/${documentId}`));
 
     toast.promise(promise, {
       loading: "Creating a new note...",
@@ -25,14 +29,14 @@ export default function DocumentsPage() {
   return (
     <>
       <div className="h-full flex flex-col items-center justify-center space-y-4">
-        <Image 
+        <Image
           src="/empty.png"
           alt="Empty"
           height={300}
           width={300}
           className="dark:hidden"
         />
-        <Image 
+        <Image
           src="/empty-dark.png"
           alt="Empty"
           height={300}

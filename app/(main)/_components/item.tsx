@@ -52,7 +52,8 @@ export default function Item({
 
     if (!id) return;
 
-    const promise = archive({ id });
+    const promise = archive({ id })
+      .then(() => router?.push(`/documents`));
 
     toast.promise(promise, {
       loading: "Moving to trash...",
