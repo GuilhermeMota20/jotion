@@ -10,20 +10,20 @@ import { EdgeStoreProvider } from "@/lib/edgestore";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Jotion",
-  description: "The connected workspace where better, faster work happens.",
+  title: 'Jotion',
+  description: 'The connected workspace where better, faster work happens.',
   icons: {
     icon: [
       {
-        media: "(pregers-color-scheme: light)",
+        media: "(prefers-color-scheme: light)",
         url: "/logo.svg",
         href: "/logo.svg",
       },
       {
-        media: "(pregers-color-scheme: dark)",
+        media: "(prefers-color-scheme: dark)",
         url: "/logo-dark.svg",
         href: "/logo-dark.svg",
-      },
+      }
     ]
   }
 };
